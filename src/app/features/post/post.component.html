@@ -1,0 +1,10 @@
+<view-post ng-if="!post.editMode" 
+           details="post.details"
+           on-edit="post.edit()"
+           on-delete="post.onDelete({ postId })"></view-post>
+
+<edit-post ng-if="post.editMode" 
+           details="post.details"
+           texts="{save:'Update'}"
+           on-cancel="post.cancel()"
+           on-update="post.update(postUpdated)"></edit-post>

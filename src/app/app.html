@@ -1,0 +1,21 @@
+<header id="filter-tags" class="row col-xs-12">
+  <h1 class="title">Angular Posts!</h1>
+
+  <tags-input class="bootstrap" ng-model="filterTags" use-strings="true" placeholder="filter by tag..." replace-spaces-with-dashes="false">
+    <auto-complete source="app.loadTags($query)" min-length="0" debounce-delay="0" max-results="10"></auto-complete>
+  </tags-input>
+</header>
+
+<main id="all-posts" class="row col-xs-12">
+
+  <post ng-repeat="post in app.posts | selectedTags: filterTags" details="post" on-update="app.update(postUpdated)" on-delete="app.delete(postId)"></post>
+
+</main>
+
+<footer id="new-post" class="row col-xs-12">
+
+  <h2>Publish New Post</h2>
+  <edit-post texts="{save:'Add Post'}" on-update="app.add(postUpdated)"></edit-post>
+
+  <pre>posts: {{app.posts|json}} </pre>
+</footer>

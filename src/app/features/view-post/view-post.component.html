@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <header class="panel-heading">
+        <h3 class="panel-title">{{post.details.title}}</h3>
+        <ul class="list-inline panel-actions">
+            <li>
+                <a ng-click="post.onEdit()" role="button" title="edit post"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a ng-click="post.onDelete({ postId: post.details.id })" role="button" title="remove post"><i class="glyphicon glyphicon-remove"></i></a>
+            </li>
+        </ul>
+    </header>
+    <main class="panel-body">
+
+        <div ng-bind-html="post.details.description"></div>
+
+    </main>
+    <footer class="panel-footer" ng-if="post.details.tags && post.details.tags.length">
+
+        <ul class="list-unstyled tags">
+            <li class="tag label label-success" ng-repeat="tag in post.details.tags">{{tag}}</li>
+        </ul>
+    </footer>
+</div>

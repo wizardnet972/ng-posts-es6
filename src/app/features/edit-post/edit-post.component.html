@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <header class="panel-heading">
+        <h3 class="panel-title input-group col-xs-12">
+            <input type="text" class="form-control" ng-model="editor.post.title" placeholder="Enter your title...">
+        </h3>
+    </header>
+    <main class="panel-body">
+
+        <div class="trix-container">
+            <trix-editor ng-model="editor.post.description" angular-trix></trix-editor>
+        </div>
+    </main>
+    <footer class="panel-footer">
+        <tags-input class="bootstrap" ng-model="editor.post.tags" use-strings="true" placeholder="Add a tag" replace-spaces-with-dashes="false">
+            <auto-complete source="editor.loadTags($query)" min-length="0" debounce-delay="0" max-results="10"></auto-complete>
+        </tags-input>
+        <hr/>
+        <button ng-disabled="!editor.post.title" ng-click="editor.update()" class="btn btn-default btn-primary ">{{ ::editor.texts.save }}</button>
+        <button ng-click="editor.onCancel()" class="btn btn-default">Cancel</button>
+
+    </footer>
+
+</div>
